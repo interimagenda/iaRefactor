@@ -1,1 +1,6 @@
 <%= render 'header' %>
+
+<% @jobs.each do |job| %>
+  <p><%= job.title %></p>
+  <p><%= job.employer_representative %></p>
+<% end %>

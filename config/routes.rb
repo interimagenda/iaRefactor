@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'my_jobs/new' => 'employer_representative_view_jobs#new', as: :new_job
   post 'my_jobs' => 'employer_representative_view_jobs#create'
   patch 'my_jobs/:id' => 'employer_representative_view_jobs#update'
-  get 'my_jobs/:id/edit' => 'employer_representative_view_jobs#edit', as: :edit_song
+  get 'my_jobs/:id/edit' => 'employer_representative_view_jobs#edit', as: :edit_job
   delete 'my_jobs/:id' => 'employer_representative_view_jobs#destroy'
   get 'my_jobs/:id' => 'employer_representative_view_jobs#show', as: :selected_job
 

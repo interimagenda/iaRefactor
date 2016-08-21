@@ -1,10 +1,10 @@
 class EmployerRepresentativeViewJobsController < ApplicationController
 
   before_action :authenticate_employer_representative!
-  before_action :ensure_owner!
+  before_action :ensure_owner!, only: [:show, :edit, :new, :create, :update, :destroy]
 
   def index
-    @jobs = Job.all.paginate(page: params[:page], per_page: 25)
+    @jobs = Job.where(employer_representative: current_employer_representative).paginate(page: params[:page], per_page: 25)
   end
 
   def show
@@ -40,15 +40,14 @@ class EmployerRepresentativeViewJobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    redirect_to jobs_path
+    redirect_to my_jobs_path
   end
 
   protected
 
   def ensure_owner!
-    @job = Job.find(params[:id])
-    unless current_employer_representative = @job.employer_representative
-      redirect_to(root_path)
+    if current_employer_representative != Job.find(params[:id]).employer_representative
+      redirect_to my_jobs_path
     end
   end
 

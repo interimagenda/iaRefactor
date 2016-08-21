@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ensure_employee_representative!
-    unless current_employee_representative
+  def ensure_employer_representative!
+    unless current_employer_representative
 
       redirect_to root_path
 
