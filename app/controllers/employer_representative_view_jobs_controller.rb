@@ -1,8 +1,7 @@
-class JobsController < ApplicationController
+class EmployerRepresentativeViewJobsController < ApplicationController
 
-  before_action :authenticate_employer_representative!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :authenticate_freelancer!, only: [:index, :show]
-  before_action :ensure_owner!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_employer_representative!
+  before_action :ensure_owner!
 
   def index
     @jobs = Job.all.paginate(page: params[:page], per_page: 25)
@@ -39,6 +38,9 @@ class JobsController < ApplicationController
   end
 
   def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+    redirect_to jobs_path
   end
 
   protected

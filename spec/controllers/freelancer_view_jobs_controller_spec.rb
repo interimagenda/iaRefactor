@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe JobsController, type: :controller do
+RSpec.describe FreelancerViewJobsController, type: :controller do
 
   # index
 
