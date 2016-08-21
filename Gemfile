@@ -9,6 +9,13 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
+gem 'material_icons'
+gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'autoprefixer-rails'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug', platform: :mri
