@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about', as: 'about'
   get 'blogs' => 'pages#blogs', as: 'blogs'
   get 'landing' => 'pages#landing', as: 'landing'
+  get 'guide' => 'pages#how_it_works', as: 'guide'
+  get 'terms_and_conditions' => 'pages#terms_and_conditions', as: 'terms_and_conditions'
+  get 'faq' => 'pages#faq', as: 'faq'
 
   get 'jobs' => 'freelancer_view_jobs#index', as: :jobs
   get 'jobs/:id' => 'freelancer_view_jobs#show', as: :job
